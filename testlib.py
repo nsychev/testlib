@@ -11,7 +11,7 @@ import atexit
 import math
 import sys
 
-version = "0.1.0 (Jun 4 2020)"
+version = "0.1.1 (Jan 13 2022)"
 
 
 class Outcome:
@@ -183,6 +183,25 @@ class InStream:
         self.skipBlanks()
         return self.reader.eof()
 
+    def readLine(self):
+        """
+        Read characters till the Eoln or EOF.
+        Skip all Eoln characters at the end of the line.
+        The return value will not contain Eoln characters.
+        """
+        cur = self.reader.nextChar()
+        if cur == EOFC:
+            self.quitf(Outcome.PE, "Unexpected end of file - token expected")
+
+        result = ''
+        while not (isEoln(cur) or cur == EOFC):
+            result += chr(cur)
+            cur = self.reader.nextChar()
+        while isEoln(cur):
+            cur = self.reader.nextChar()
+        self.reader.unreadChar(cur)
+        return result
+
     def readWord(self):
         self.skipBlanks()
         cur = self.reader.nextChar()
@@ -269,6 +288,12 @@ class InStream:
 
     def readDouble(self):
         return self.readFloat()
+
+    def eof(self):
+        return self.reader.eof()
+
+    def eoln(self):
+        return self.reader.eoln()
 
     def quitf(self, result, msg):
         if finalizer is not None:
