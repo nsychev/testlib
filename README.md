@@ -10,7 +10,7 @@ The project also contains Python implementation of the testlib. This
 version is used on some competitions on Yandex.Contest (
 [https://contest.yandex.com](https://contest.yandex.com) ).
 
-Pascal version of testlib is not include, but can be found at
+Pascal version of testlib is not included, but can be found at
 [http://acm.math.spbu.ru/soft/testlib](http://acm.math.spbu.ru/soft/testlib)
 or [clone](https://github.com/stden/testlib) on github.
 
@@ -18,7 +18,8 @@ or [clone](https://github.com/stden/testlib) on github.
 
 ### Checker (C++ and Python)
 
-This is sample checker which expects in the output and in the answer the same integer. It ignores all white-spaces. See more examples in the package.
+This is sample checker which expects in the output and in the answer the same integer. 
+It ignores all white-spaces. See more examples in the package.
 
 ```c++
 #include "testlib.h"
