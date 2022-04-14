@@ -17,4 +17,4 @@ if __name__ == '__main__':
     if abs(ja - pa) > EPS + 1E-15:
         quitf(Outcome.WA, "expected {:.10f}, found {:.10f}".format(ja, pa))
 
-    quitf(Outcome.OK, "answer is {.10f}".format(ja))
+    quitf(Outcome.OK, "answer is {:.10f}".format(ja))
